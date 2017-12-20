@@ -1,0 +1,9 @@
+
+
+
+.my-card {
+    min-height: calc(100vh - 98px);
+    padding: 1.5%;
+    margin-top: 80px;
+    border: none;
+}
