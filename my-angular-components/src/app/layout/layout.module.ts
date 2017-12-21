@@ -11,6 +11,7 @@ import {
 } from "@angular/material";
 
 import { MatIcon } from '@angular/material';
+import { NavbarUtilsService } from "./navbar/navbar-utils.service";
 
 const LAYOUT_ROUTES = [
     ...navbarRoutes,
@@ -22,13 +23,16 @@ const LAYOUT_ROUTES = [
     RouterModule.forRoot(LAYOUT_ROUTES, { useHash: true, initialNavigation: true }),
     MatIconModule,
     MatButtonModule,
-    MatSidenavModule
+    MatSidenavModule,
   ],
   exports: [
     RouterModule,
     MatIconModule,
     MatButtonModule,
-    MatSidenavModule
+    MatSidenavModule,
+  ],
+  providers: [
+        NavbarUtilsService,
   ],
 })
 export class LayoutModule { }

@@ -5,6 +5,7 @@ import { LayoutModule } from "./layout/layout.module";
 import { NavbarComponent } from "./layout/navbar/navbar.component";
 import { HomeModule } from "./home/home.module";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AdministrationModule } from "./administration/administration.module";
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     BrowserModule,
     LayoutModule,
     HomeModule,
+    AdministrationModule,
     BrowserAnimationsModule
   ],
   providers: [],
