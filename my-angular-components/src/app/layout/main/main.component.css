@@ -1,9 +1,6 @@
 
-
-
 .my-card {
-    min-height: calc(100vh - 98px);
-    padding: 1.5%;
-    margin-top: 80px;
-    border: none;
+    min-height: 200px;
+    padding: 80px 1.5%;
+    margin-left: 15px;
 }

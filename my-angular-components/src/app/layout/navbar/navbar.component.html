@@ -1,3 +1,31 @@
-<p>
-  navbar works!
-</p>
+<nav class="my-navbar my-navbar--fixed">
+    <div class="my-menu-row">
+        <div class="my-menu-elem">
+            <p>
+                Navbar works !!
+            </p>
+        </div>
+    </div>
+    <div class="my-navbar-nav">
+        <div class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+            <a class="nav-link" (click)="sidenav.open(); sidenavOpen=true">
+                <mat-icon class="my-mat-icon--30">menu</mat-icon>
+            </a>
+        </div>
+    </div>
+</nav>
+<mat-sidenav-container class="my-mat-sidenav-container" [ngClass]="{'my-mat-sidenav-container--display': sidenavOpen}">
+    <mat-sidenav #sidenav position="end" class="my-mat-sidenav" (open)="isSidenavOpen(true)" (close)="isSidenavOpen(close)">
+        <span class="my-mat-sidenav-logo"></span>
+        <div class="my-sidenav-link-container">
+            <a class="my-sidenav-link" (click)="handleClickLinkHome(); sidenav.close();">
+                <mat-icon class="my-mat-icon--24">home</mat-icon>
+                <span class="my-mat-sidenav-text">Home</span>
+            </a>
+            <a class="my-sidenav-link" (click)="handleClickLinkAdministration(); sidenav.close();">
+                <mat-icon class="my-mat-icon--24">settings</mat-icon>
+                <span class="my-mat-sidenav-text">Settings</span>
+            </a>
+        </div>
+    </mat-sidenav>
+</mat-sidenav-container>

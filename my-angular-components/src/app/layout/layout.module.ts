@@ -4,6 +4,13 @@ import { MainComponent } from './main/main.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { navbarRoutes } from "../app.routes";
 import { RouterModule } from "@angular/router";
+import { 
+    MatIconModule,
+    MatButtonModule,
+    MatSidenavModule 
+} from "@angular/material";
+
+import { MatIcon } from '@angular/material';
 
 const LAYOUT_ROUTES = [
     ...navbarRoutes,
@@ -13,9 +20,15 @@ const LAYOUT_ROUTES = [
   imports: [
     CommonModule,
     RouterModule.forRoot(LAYOUT_ROUTES, { useHash: true, initialNavigation: true }),
+    MatIconModule,
+    MatButtonModule,
+    MatSidenavModule
   ],
   exports: [
     RouterModule,
+    MatIconModule,
+    MatButtonModule,
+    MatSidenavModule
   ],
 })
 export class LayoutModule { }

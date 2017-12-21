@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-navbar',
@@ -7,9 +7,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor() { }
+  // SideNav
+  sidenavOpen: boolean;
+  @ViewChild ('sidenav') sidenav;
+  
+  constructor() { 
+    this.sidenavOpen = false;
+  }
 
   ngOnInit() {
+  }
+
+  isSidenavOpen(isOpen: boolean) {
+    this.sidenavOpen = isOpen;
+  }
+
+  handleClickLinkHome() {
+    // TODO link home
+  }
+
+  handleClickLinkAdministration() {
+    // TODO link admin
   }
 
 }

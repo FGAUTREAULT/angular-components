@@ -4,6 +4,7 @@ import { MainComponent } from "./layout/main/main.component";
 import { LayoutModule } from "./layout/layout.module";
 import { NavbarComponent } from "./layout/navbar/navbar.component";
 import { HomeModule } from "./home/home.module";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -13,7 +14,8 @@ import { HomeModule } from "./home/home.module";
   imports: [
     BrowserModule,
     LayoutModule,
-    HomeModule
+    HomeModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [MainComponent]

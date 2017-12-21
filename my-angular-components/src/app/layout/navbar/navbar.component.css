@@ -1,0 +1,140 @@
+
+
+.my-navbar--fixed {
+    width: 100%;
+    position: fixed;
+    top: 0px;
+    z-index: 1000;
+    background-color: lightskyblue;
+}
+
+.my-menu-row, .my-navbar {
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-flex-wrap: nowrap;
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-align-content: space-around;
+    -ms-flex-line-pack: distribute;
+    align-content: space-around;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    flex-grow: 1;
+}
+
+.my-navbar-nav {
+    float: right;
+    flex-grow: 0;
+    padding-right: 4px;
+}
+
+.my-menu-elem {
+    -webkit-flex: 0 1 auto;
+    -ms-flex: 0 1 auto;
+    flex: 0 1 auto;
+    -webkit-align-self: auto;
+    -ms-flex-item-align: auto;
+    align-self: auto;
+    padding-right: 4px;
+}
+
+/******************** Side Nav ****************************/
+
+.my-mat-sidenav-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.my-mat-sidenav-container--display {
+    display: block;
+    z-index: 2000;
+    pointer-events: auto;
+}
+
+.my-mat-sidenav {
+    width: 320px;
+    background-color: black;
+    color: white;
+}
+
+.my-mat-sidenav-logo {
+    height: 80px;
+    width: 256px;
+    display: inline-block;
+    vertical-align: middle;
+    background: url("data:image/png;base64,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") no-repeat center center;
+    background-size: contain;
+    margin-left: 20px;
+}
+
+.my-sidenav-link-container {
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-flex-wrap: nowrap;
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+    -webkit-justify-content: flex-start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+    -webkit-align-content: stretch;
+    -ms-flex-line-pack: stretch;
+    align-content: stretch;
+    -webkit-align-items: flex-start;
+    -ms-flex-align: start;
+    align-items: flex-start;
+    padding-top: 27px;
+}
+
+.my-sidenav-link {
+    width: 100%;
+    font-size: 24px;
+    -webkit-flex: 0 1 auto;
+    -ms-flex: 0 1 auto;
+    flex: 0 1 auto;
+    -webkit-align-self: auto;
+    -ms-flex-item-align: auto;
+    align-self: auto;
+    padding: 9px 0px 9px 20px;
+    -webkit-transition: background-color 0.25s;
+    transition: background-color 0.25s;
+}
+
+.my-sidenav-link:hover {
+    background-color: rgba(255, 255, 255, 0.30);
+    -webkit-transition: background-color 0.25s;
+    transition: background-color 0.25s;
+}
+
+.my-mat-sidenav-text {
+    padding-left: 9px;
+}
+
+.my-mat-icon--24 {
+    height: 24px;
+    width: 24px;
+    font-size: 24px;
+}
+
+.my-mat-icon--30 {
+    height: 30px;
+    width: 30px;
+    font-size: 30px;
+}
+
+.mat-drawer-container {
+    background-color: transparent!important;
+}
