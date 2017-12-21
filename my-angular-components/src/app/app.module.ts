@@ -6,6 +6,7 @@ import { NavbarComponent } from "./layout/navbar/navbar.component";
 import { HomeModule } from "./home/home.module";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AdministrationModule } from "./administration/administration.module";
+import { SharedModule } from "./shared/shared.module";
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { AdministrationModule } from "./administration/administration.module";
     LayoutModule,
     HomeModule,
     AdministrationModule,
+    SharedModule,
     BrowserAnimationsModule
   ],
   providers: [],

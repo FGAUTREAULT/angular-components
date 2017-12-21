@@ -1,14 +1,18 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, OnDestroy } from '@angular/core';
 import { Router, NavigationEnd, ActivatedRouteSnapshot } from "@angular/router";
 import { NAVIGATE_ADMINISTRATION, NAVIGATE_HOME, NAVIGATE_PARAM_PAGE_TITLE_HOME } from "../../shared/constants/navigate.constants";
 import { NavbarUtilsService } from "./navbar-utils.service";
+import { Subscription } from "rxjs/Subscription";
+import { AppUtilsService } from "../../shared/services/app-utils.service";
 
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css']
 })
-export class NavbarComponent implements OnInit {
+export class NavbarComponent implements OnInit, OnDestroy {
+
+  subscriptionRouterEvents: Subscription;
 
   // SideNav
   sidenavOpen: boolean;
@@ -17,6 +21,7 @@ export class NavbarComponent implements OnInit {
   pageTitle: string;
 
   constructor(
+    private appUtilsService: AppUtilsService,
     private router: Router,
     private navbarUtils: NavbarUtilsService) {
     this.sidenavOpen = false;
@@ -24,11 +29,15 @@ export class NavbarComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.router.events.subscribe((event) => {
+    this.subscriptionRouterEvents = this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
         this.pageTitle = NavbarUtilsService.getPageTitle(this.router.routerState.snapshot.root);
       }
     });
+  }
+
+  ngOnDestroy(): void {
+    AppUtilsService.unsubscribeObservable(this.subscriptionRouterEvents);
   }
 
   isSidenavOpen(isOpen: boolean) {
