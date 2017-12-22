@@ -1,0 +1,16 @@
+<div class="my-snack-bar-wrapper">
+    <div class="my-snack-bar-icon">
+        <mat-icon class="my-mat-icon--36 my-mat-icon--accent">announcement</mat-icon>
+    </div>
+    <div class="my-snack-bar-message">
+        <p>
+            {{ message }}
+        </p>
+    </div>
+    <button mat-raised-button
+        class="my-snack-bar-button"
+        color="accent"
+        (click)="handleClickAction()">
+        {{ messageButton }}
+    </button>
+</div>

@@ -1,11 +1,11 @@
-
+@import '../../../content/scss/colors.constants.scss';
 
 .my-navbar--fixed {
     width: 100%;
     position: fixed;
     top: 0px;
     z-index: 1000;
-    background-color: lightskyblue;
+    background-color: $primary-color;
 }
 
 .my-menu-row, .my-navbar {
