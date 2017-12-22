@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SnackBarService } from "../shared/snackbar/snack-bar.service";
 
 @Component({
   selector: 'app-administration',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdministrationComponent implements OnInit {
 
-  constructor() { }
+  constructor(private snackBarService: SnackBarService) { }
 
   ngOnInit() {
+  }
+
+  handleClickSave() {
+    this.snackBarService.snackBarSuccess('Administration component saved').subscribe();
   }
 
 }

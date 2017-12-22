@@ -11,10 +11,10 @@ export class HomeComponent implements OnInit {
   constructor(private snackBarService: SnackBarService) { }
 
   ngOnInit() {
-    // this.snackBarService.snackBarSuccess('Main component displayed').subscribe();
-    // this.snackBarService.snackBarError('Main component displayed','Close').subscribe();
-    // this.snackBarService.snackBarWarning('Main component displayed').subscribe();
-    this.snackBarService.snackBarAction('Main component displayed', 'Do it !').subscribe();
+  }
+
+  handleClickSave() {
+    this.snackBarService.snackBarSuccess('Main component saved').subscribe();
   }
 
 }
