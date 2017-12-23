@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { SnackBarService } from "../shared/snackbar/snack-bar.service";
+import { SnackBarService } from '../shared/snackbar/snack-bar.service';
 
 @Component({
   selector: 'app-home',

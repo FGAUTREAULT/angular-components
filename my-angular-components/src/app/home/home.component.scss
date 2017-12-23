@@ -1,5 +1,6 @@
 @import '../../content/scss/colors.constants.scss';
 
+// Home component
 .my-home-wrapper {
     display: -ms-flexbox;
     display: -webkit-flex;
@@ -22,6 +23,7 @@
     overflow-x: hidden;
 }
 
+// Save button
 .my-save-button-wrapper {
     position: fixed;
     bottom: 27px;
@@ -31,4 +33,34 @@
 
 .my-save-button--color {
     background-color: $primary-color;
+}
+
+// Table
+.my-table-wrapper {
+    -webkit-flex: 1 1 auto;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    -webkit-align-self: auto;
+    -ms-flex-item-align: auto;
+    align-self: auto;
+    width: 95%;
+    -webkit-transition: width 0.35s;
+    transition: width 0.35s;
+}
+
+// Toolbar
+.my-toolbar-wrapper {
+    -webkit-flex: 1 1 auto;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    -webkit-align-self: auto;
+    -ms-flex-item-align: auto;
+    align-self: auto;
+    width: 5%;
+    position: relative;
+}
+
+.my-home-fixed {
+    position: fixed;
+    width: inherit;
 }

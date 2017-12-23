@@ -4,3 +4,6 @@ Refacto css home/admin
 Routing au refresh
 404
 Login
+ADD/Remove card
+Ajout de détail, toolbar slide
+tests

@@ -1,5 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 @import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+/* @import './content/scss/colors.contants.scss'; */
 /*@import '~@angular/material/theming';
 
 @include mat-core();
@@ -18,4 +19,14 @@ $my-app-theme: mat-light-theme($primary-color, $secondary-color, $warning-color)
 
 body {
     margin: 0;
+}
+
+.my-button {
+    background-color: #082A40;
+    color: white;
+}
+
+.my-button:hover {
+    background-color: #ADC8D9;
+    color: black;
 }

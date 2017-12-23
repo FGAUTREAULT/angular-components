@@ -1,0 +1,58 @@
+@import '../../../content/scss/colors.constants.scss';
+
+.my-toolbar-wrapper {
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    -webkit-align-content: stretch;
+    -ms-flex-line-pack: stretch;
+    align-content: stretch;
+    -webkit-align-items: flex-end;
+    -ms-flex-align: end;
+    align-items: flex-end;
+}
+
+.my-toolbar-elem {
+    // Flexbox
+    -webkit-flex: 1 1 auto;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    -webkit-align-self: auto;
+    -ms-flex-item-align: auto;
+    align-self: auto;
+    // Disposition
+    padding: 20px 20px 15px 20px;
+    margin: 2px;
+    // Border
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    border-radius: 15px;
+    // Curseur
+    cursor: pointer;
+    // Transition
+    -webkit-transition-timing-function: ease;
+    transition-timing-function: ease;
+    -webkit-transition: background-color 0.25s, color 0.25s, -webkit-transform 0.5s;
+    transition: background-color 0.25s, color 0.25s, transform 0.5s;
+}
+
+.my-button {
+    // Couleur
+    background-color: $secondary-color;
+    color: white;
+}
+
+.my-button:hover {
+    // Couleur
+    background-color: $tertiary-color;
+    color: black;
+}
