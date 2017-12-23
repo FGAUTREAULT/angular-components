@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { SnackBarService } from '../../shared/snackbar/snack-bar.service';
+import { AppAttributesService } from '../../shared/services/app-attributes.service';
+import { CardComponent } from '../../shared/card/card.component';
+import { ToolbarService } from './toolbar.service';
 
 @Component({
   selector: 'app-toolbar',
@@ -8,17 +11,25 @@ import { SnackBarService } from '../../shared/snackbar/snack-bar.service';
 })
 export class ToolbarComponent implements OnInit {
 
-  constructor(private snackBarService: SnackBarService) { }
+  constructor(
+    private snackBarService: SnackBarService,
+    private appAttributesService: AppAttributesService,
+    private toolbarService: ToolbarService
+  ) { }
 
   ngOnInit() {
   }
 
   handleClickAddCard() {
-    this.snackBarService.snackBarSuccess('Card Added').subscribe();
+    this.toolbarService.publishToolbarEventAdd();
   }
 
   handleClickRemoveSelectedCard() {
-    this.snackBarService.snackBarSuccess('Selected Card Removed').subscribe();
+    this.toolbarService.publishToolbarEventRemove();
+  }
+
+  isSelectedCard(): boolean {
+    return this.appAttributesService.getSelectedCard() !== undefined;
   }
 
 }

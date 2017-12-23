@@ -1,6 +1,8 @@
 <div class="my-home-wrapper">
-  <div class="my-table-wrapper">
-      <p>Home works !</p>
+  <div class="my-table-wrapper" >
+    <div *ngFor="let item of cards">
+      <app-card></app-card>
+    </div>
   </div>
   <div class="my-toolbar-wrapper">
       <span class="my-home-fixed">

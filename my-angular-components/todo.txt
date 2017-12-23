@@ -4,6 +4,10 @@ Refacto css home/admin
 Routing au refresh
 404
 Login
-ADD/Remove card
 Ajout de détail, toolbar slide
 tests
+remonter AppAttributesService dans le home et mettre des events
+muuri layout
+cards model
+angular animations
+remove

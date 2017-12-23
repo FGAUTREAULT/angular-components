@@ -1,0 +1,37 @@
+
+.my-card-wrapper {
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    -webkit-align-content: stretch;
+    -ms-flex-line-pack: stretch;
+    align-content: stretch;
+    -webkit-align-items: flex-start;
+    -ms-flex-align: start;
+    align-items: flex-start;
+}
+
+.my-card {
+    -webkit-border: solid 1px black;
+    -moz-border: solid 1px black;
+    border: solid 1px black;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    border-radius: 15px;
+    padding: 0px 15px 0px 15px;
+    margin: 2px;;
+    cursor: pointer;
+}
+
+.my-card--selected {
+    background-color: #082A40;
+    color: white;
+}
+
+.my-card:hover {
+    background-color: #ADC8D9;
+    color: black;
+}

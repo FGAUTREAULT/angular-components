@@ -8,6 +8,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { ToolbarComponent } from './toolbar/toolbar.component';
 import { MatTooltipModule } from '@angular/material';
+import { CardComponent } from '../shared/card/card.component';
+import { ToolbarService } from './toolbar/toolbar.service';
 
 @NgModule({
   imports: [
@@ -18,6 +20,13 @@ import { MatTooltipModule } from '@angular/material';
     MatTooltipModule,
     RouterModule.forRoot(HOME_ROUTE, { useHash: true, initialNavigation: true }),
   ],
-  declarations: [HomeComponent, ToolbarComponent],
+  declarations: [
+    HomeComponent,
+    ToolbarComponent,
+    CardComponent,
+  ],
+  providers: [
+    ToolbarService,
+  ],
 })
 export class HomeModule { }

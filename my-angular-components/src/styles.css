@@ -24,9 +24,20 @@ body {
 .my-button {
     background-color: #082A40;
     color: white;
+    pointer-events: all;
+    cursor: pointer;
 }
 
 .my-button:hover {
     background-color: #ADC8D9;
     color: black;
+    pointer-events: all;
+    cursor: pointer;
+}
+
+.my-button-disabled {
+    background-color: #BDBDBD !important;
+    color: lightgrey!important;
+    pointer-events: none!important;
+    cursor: default!important;
 }
