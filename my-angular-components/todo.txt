@@ -8,6 +8,7 @@ Ajout de détail, toolbar slide
 tests
 remonter AppAttributesService dans le home et mettre des events
 muuri layout
-cards model
 angular animations
-remove
+promesses pour service user
+save
+service user utils

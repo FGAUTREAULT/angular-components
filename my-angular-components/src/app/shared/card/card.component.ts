@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { AppAttributesService } from '../services/app-attributes.service';
+import { Input } from '@angular/core';
+import { User } from '../../../domain/entity/user.model';
 
 @Component({
   selector: 'app-card',
@@ -8,17 +10,20 @@ import { AppAttributesService } from '../services/app-attributes.service';
 })
 export class CardComponent implements OnInit {
 
-  constructor(private appAttributesService: AppAttributesService) { }
+  @Input() user: User;
+
+  constructor(
+    private appAttributesService: AppAttributesService) { }
 
   ngOnInit() {
   }
 
   handleClick() {
-    this.appAttributesService.setSelectedCard(this);
+    this.appAttributesService.setSelectedUser(this.user);
   }
 
   isSelected(): boolean {
-    return this.appAttributesService.getSelectedCard() === this;
+    return this.appAttributesService.getSelectedUser() === this.user;
   }
 
 }

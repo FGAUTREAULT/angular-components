@@ -1,19 +1,20 @@
 import { Injectable } from '@angular/core';
 import { CardComponent } from '../card/card.component';
+import { User } from '../../../domain/entity/user.model';
 
 @Injectable()
 export class AppAttributesService {
 
   constructor() { }
 
-  private selectedCard: CardComponent;
+  private selectedUser: User;
 
-  getSelectedCard(): CardComponent {
-    return this.selectedCard;
+  getSelectedUser(): User {
+    return this.selectedUser;
   }
 
-  setSelectedCard(newCard: CardComponent) {
-    this.selectedCard = newCard;
+  setSelectedUser(newuser: User) {
+    this.selectedUser = newuser;
   }
 
 }

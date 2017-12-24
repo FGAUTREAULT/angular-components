@@ -7,6 +7,7 @@ import { HomeModule } from './home/home.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AdministrationModule } from './administration/administration.module';
 import { SharedModule } from './shared/shared.module';
+import { DomainModule } from '../domain/domain.module';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { SharedModule } from './shared/shared.module';
     AdministrationModule,
     SharedModule,
     BrowserAnimationsModule,
+    DomainModule,
   ],
   providers: [],
   bootstrap: [MainComponent]

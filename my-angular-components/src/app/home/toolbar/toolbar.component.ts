@@ -29,7 +29,7 @@ export class ToolbarComponent implements OnInit {
   }
 
   isSelectedCard(): boolean {
-    return this.appAttributesService.getSelectedCard() !== undefined;
+    return this.appAttributesService.getSelectedUser() !== undefined;
   }
 
 }
