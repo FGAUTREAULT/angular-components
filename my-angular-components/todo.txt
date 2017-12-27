@@ -10,5 +10,4 @@ remonter AppAttributesService dans le home et mettre des events
 muuri layout
 angular animations
 promesses pour service user
-save
-service user utils
+formulaire de création utilisateur

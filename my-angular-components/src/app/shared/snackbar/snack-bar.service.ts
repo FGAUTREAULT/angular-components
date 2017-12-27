@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
-import { Observable } from "rxjs/Observable";
-import { SnackBarSuccessComponent } from "./snack-bar-success/snack-bar-success.component";
-import { MatSnackBar } from "@angular/material";
-import { SnackBarErrorComponent } from "./snack-bar-error/snack-bar-error.component";
-import { SnackBarWarningComponent } from "./snack-bar-warning/snack-bar-warning.component";
-import { SnackBarActionComponent } from "./snack-bar-action/snack-bar-action.component";
+import { Observable } from 'rxjs/Observable';
+import { SnackBarSuccessComponent } from './snack-bar-success/snack-bar-success.component';
+import { MatSnackBar } from '@angular/material';
+import { SnackBarErrorComponent } from './snack-bar-error/snack-bar-error.component';
+import { SnackBarWarningComponent } from './snack-bar-warning/snack-bar-warning.component';
+import { SnackBarActionComponent } from './snack-bar-action/snack-bar-action.component';
 
 @Injectable()
 export class SnackBarService {

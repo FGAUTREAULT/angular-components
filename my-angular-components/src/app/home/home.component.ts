@@ -5,6 +5,7 @@ import { ToolbarService } from './toolbar/toolbar.service';
 import { User } from '../../domain/entity/user.model';
 import { UserService } from '../../domain/entity/user.service';
 import { AppAttributesService } from '../shared/services/app-attributes.service';
+import { AppUtilsService } from '../shared/services/app-utils.service';
 
 @Component({
   selector: 'app-home',
@@ -17,7 +18,8 @@ export class HomeComponent implements OnInit {
     private snackBarService: SnackBarService,
     private toolbarService: ToolbarService,
     private userService: UserService,
-    private appUserService: AppAttributesService,
+    private appAttributeService: AppAttributesService,
+    private appUtilsService: AppUtilsService,
   ) { }
 
   private userList: User[];
@@ -41,60 +43,40 @@ export class HomeComponent implements OnInit {
 
   addCard() {
     // tslint:disable-next-line:max-line-length
-    const user: User = this.addUser('User', `${this.userList.length}`, this.userList.length, `Description de User ${this.userList.length}`);
+    const user: User = this.appUtilsService.createUser(
+      'User', `${this.userList.length}`,
+      this.userList.length,
+      `Description de User ${this.userList.length}`
+    , this.userList);
     if (user) {
       this.snackBarService.snackBarSuccess(`Card Added for ${user.firstName} ${user.lastName}`).subscribe();
-      this.appUserService.setSelectedUser(user);
+      this.userList.push(user);
+      this.appAttributeService.setSelectedUser(user);
+      this.appAttributeService.setIsCanBeSaved(true);
     } else {
       this.snackBarService.snackBarError(`Error: creation failed for new user`, 'Close').subscribe();
     }
-    console.log(this.userList);
   }
 
   removeCard() {
-    const user = this.appUserService.getSelectedUser();
-    this.removeUser(user);
-    this.appUserService.setSelectedUser(undefined);
+    const user = this.appAttributeService.getSelectedUser();
+    this.userList = this.appUtilsService.removeUser(user, this.userList);
+    this.appAttributeService.setSelectedUser(undefined);
+    this.appAttributeService.setIsCanBeSaved(true);
   }
-
-  removeUser(userToRemove: User) {
-    this.userList = this.userList.filter((user: User) => {
-        return userToRemove.firstName !== user.firstName ||
-            userToRemove.lastName !== user.lastName ||
-            userToRemove.age !== user.age;
-    });
-  }
-
-  addUser(firstName: string,
-    lastName: string,
-    age: number,
-    description: string
-  ): User {
-    let userToAdd: User = new User(firstName, lastName, age, description);
-
-    if (!this.getUser(userToAdd.firstName, userToAdd.lastName, userToAdd.age)) {
-        this.userList.push(userToAdd);
-    } else {
-        userToAdd = null;
-    }
-
-    return userToAdd;
-  }
-
-  getUser(firstName: string, lastName: string, age: number) {
-    return this.userList.find((user: User) => {
-        return firstName === user.firstName &&
-            lastName === user.lastName &&
-            age === user.age;
-    });
-}
 
   initUserList() {
     this.userList = this.userService.findAllUser();
   }
 
   handleClickSave() {
+    this.userService.updateUsers(this.userList);
+    this.appAttributeService.setIsCanBeSaved(false);
     this.snackBarService.snackBarSuccess('Main component saved').subscribe();
+  }
+
+  isCanBeSaved() {
+    return this.appAttributeService.getIsCanBeSaved();
   }
 
 }

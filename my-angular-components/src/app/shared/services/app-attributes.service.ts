@@ -8,6 +8,7 @@ export class AppAttributesService {
   constructor() { }
 
   private selectedUser: User;
+  private isCanBeSaved: boolean;
 
   getSelectedUser(): User {
     return this.selectedUser;
@@ -15,6 +16,14 @@ export class AppAttributesService {
 
   setSelectedUser(newuser: User) {
     this.selectedUser = newuser;
+  }
+
+  getIsCanBeSaved(): boolean {
+    return this.isCanBeSaved;
+  }
+
+  setIsCanBeSaved(canBeSaved: boolean) {
+    this.isCanBeSaved = canBeSaved;
   }
 
 }

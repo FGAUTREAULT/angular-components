@@ -10,7 +10,7 @@
       </span> 
   </div>
   <div class="my-save-button-wrapper">
-    <button class="my-save-button--color" mat-fab (click)="handleClickSave()">
+    <button class="my-save-button--color" mat-fab (click)="handleClickSave()" [disabled]="!isCanBeSaved()">
       <mat-icon>save</mat-icon>
     </button>
   </div>
