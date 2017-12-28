@@ -1,0 +1,42 @@
+@import '../../../../content/scss/colors.constants.scss';
+
+.my-dialog-button-wrapper {
+    display: flex; 
+    justify-content: flex-end;
+    padding-top: 9px;
+}
+
+.my-dialog-title {
+    background-color: $primary-color;
+    width: auto;
+    height: 30px;
+    vertical-align: center;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 400;
+    color: white;
+    margin-bottom: 18px;
+}
+
+.my-input--full-width {
+    display: block;
+    width: 100%!important;
+}
+
+.my-modal-raised-button {
+    background-color: $primary-color;
+    color: white!important;
+    font-size: 16px;
+    -webkit-transition: 0.25s background-color, 0.25s color;
+    transition: 0.25s background-color, 0.25s color;
+}
+
+.my-modal-raised-button:hover {
+    background-color: $secondary-color;
+    -webkit-transition: 0.25s background-color, 0.25s color;
+    transition: 0.25s background-color, 0.25s color;
+}
+
+.my-modal-raised-button--margin-right {
+    margin-right: 9px;
+}

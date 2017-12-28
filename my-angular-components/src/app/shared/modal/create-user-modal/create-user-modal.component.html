@@ -1,0 +1,25 @@
+<mat-dialog-title>
+  <div class="my-dialog-title" >Create User</div>
+</mat-dialog-title>
+
+<form [formGroup]="createUserForm">
+  <mat-dialog-content>
+      <div class="my-dialog-wrapper" >
+          <mat-form-field class="my-input--full-width">
+              <input matInput placeholder="First Name"
+                  name="firstName"
+                  formControlName="firstNameControl"
+              >
+              <mat-error *ngIf="createUserForm?.controls['firstNameControl']?.hasError('required')">First name field is required</mat-error>
+              <mat-hint>First Name Hint</mat-hint>
+          </mat-form-field>
+      
+      </div>
+  </mat-dialog-content>
+
+  <mat-dialog-actions class="my-dialog-button-wrapper">
+      <button mat-raised-button class="my-modal-raised-button--margin-right" (click)="handleClickCancel()">Cancel</button>
+      <button mat-raised-button class="my-modal-raised-button" type="submit" (click)="handleClickValidate()" [disabled]="!createUserForm.valid">Create</button>
+  </mat-dialog-actions>
+
+</form>

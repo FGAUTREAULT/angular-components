@@ -7,6 +7,8 @@ import { UserService } from '../../domain/entity/user.service';
 import { AppAttributesService } from '../shared/services/app-attributes.service';
 import { AppUtilsService } from '../shared/services/app-utils.service';
 import { trigger, style, transition, animate, group } from '@angular/animations';
+import { MatDialogRef, MatDialog } from '@angular/material';
+import { CreateUserModalComponent } from '../shared/modal/create-user-modal/create-user-modal.component';
 
 @Component({
   selector: 'app-home',
@@ -39,6 +41,7 @@ export class HomeComponent implements OnInit {
     private userService: UserService,
     private appAttributeService: AppAttributesService,
     private appUtilsService: AppUtilsService,
+    private dialog: MatDialog,
   ) { }
 
   private userList: User[];
@@ -49,7 +52,7 @@ export class HomeComponent implements OnInit {
 
       switch (event) {
         case ToolbarService.TOOLBAR_ADD:
-          this.addCard();
+          this.openCreateModal();
           break;
         case ToolbarService.TOOLBAR_REMOVE:
           this.removeCard();
@@ -60,12 +63,25 @@ export class HomeComponent implements OnInit {
 
   }
 
-  addCard() {
+  openCreateModal() {
+    // lance la modal
+    let dialogRef: MatDialogRef<CreateUserModalComponent>;
+    dialogRef = this.dialog.open(CreateUserModalComponent, { });
+
+    // récupère le résultat après la fermeture de la modal
+    dialogRef.afterClosed().subscribe((res) => {
+      if (res) {
+        this.addCard(res);
+      }
+    });
+  }
+
+  addCard(json) {
     // tslint:disable-next-line:max-line-length
     const user: User = this.appUtilsService.createUser(
-      'User', `${this.userList.length}`,
+      json.firstName, `${this.userList.length}`,
       this.userList.length,
-      `Description de User ${this.userList.length}`
+      `Description de ${json.firstName} ${this.userList.length}`
     , this.userList);
     if (user) {
       this.snackBarService.snackBarSuccess(`Card Added for ${user.firstName} ${user.lastName}`).subscribe();
