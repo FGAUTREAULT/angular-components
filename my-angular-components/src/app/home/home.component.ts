@@ -79,10 +79,10 @@ export class HomeComponent implements OnInit {
   addCard(json) {
     // tslint:disable-next-line:max-line-length
     const user: User = this.appUtilsService.createUser(
-      json.firstName, `${this.userList.length}`,
-      this.userList.length,
-      `Description de ${json.firstName} ${this.userList.length}`
-    , this.userList);
+      json.firstName, json.lastName,
+      json.age,
+      json.description,
+      this.userList);
     if (user) {
       this.snackBarService.snackBarSuccess(`Card Added for ${user.firstName} ${user.lastName}`).subscribe();
       this.userList.push(user);

@@ -19,6 +19,8 @@ export class CreateUserModalComponent implements OnInit {
     // Pour la Validation
     this.createUserForm = this.fb.group({
       firstNameControl: new FormControl('',  [Validators.required, ]),
+      lastNameControl: new FormControl('',  [Validators.required, ]),
+      ageControl: new FormControl('',  [Validators.required, Validators.maxLength(2), ]),
     });
   }
 
@@ -29,7 +31,10 @@ export class CreateUserModalComponent implements OnInit {
   submitCreateOfForm(createUserFormValue: any) {
 
     const result = {
-      firstName : createUserFormValue.firstNameControl
+      firstName : createUserFormValue.firstNameControl,
+      lastName : createUserFormValue.lastNameControl,
+      age : createUserFormValue.ageControl,
+      description : createUserFormValue.description
     };
 
     return result;

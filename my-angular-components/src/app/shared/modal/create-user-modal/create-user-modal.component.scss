@@ -1,5 +1,9 @@
 @import '../../../../content/scss/colors.constants.scss';
 
+.my-dialog-wrapper {
+    width : 25vw;
+}
+
 .my-dialog-button-wrapper {
     display: flex; 
     justify-content: flex-end;

@@ -11,7 +11,34 @@
                   formControlName="firstNameControl"
               >
               <mat-error *ngIf="createUserForm?.controls['firstNameControl']?.hasError('required')">First name field is required</mat-error>
-              <mat-hint>First Name Hint</mat-hint>
+              <mat-hint>User's First Name</mat-hint>
+          </mat-form-field>
+
+          <mat-form-field class="my-input--full-width">
+              <input matInput placeholder="Last Name"
+                  name="lastName"
+                  formControlName="lastNameControl"
+              >
+              <mat-error *ngIf="createUserForm?.controls['lastNameControl']?.hasError('required')">Last name field is required</mat-error>
+              <mat-hint>User's Last Name</mat-hint>
+          </mat-form-field>
+
+          <mat-form-field class="my-input--full-width">
+            <input matInput placeholder="Age"
+                name="age"
+                formControlName="ageControl"
+            >
+            <mat-error *ngIf="createUserForm?.controls['ageControl']?.hasError('required')">Age field is required</mat-error>
+            <mat-error *ngIf="createUserForm?.controls['ageControl']?.hasError('maxlength')">Type a number between 1 and 99.</mat-error>
+            <mat-hint>User's age</mat-hint>
+          </mat-form-field>
+
+          <mat-form-field class="my-input--full-width">
+            <input matInput placeholder="Description"
+                name="description"
+                maxlength="30"
+            >
+            <mat-hint>User's quick description</mat-hint>
           </mat-form-field>
       
       </div>
