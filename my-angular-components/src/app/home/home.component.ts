@@ -6,11 +6,30 @@ import { User } from '../../domain/entity/user.model';
 import { UserService } from '../../domain/entity/user.service';
 import { AppAttributesService } from '../shared/services/app-attributes.service';
 import { AppUtilsService } from '../shared/services/app-utils.service';
+import { trigger, style, transition, animate, group } from '@angular/animations';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  styleUrls: ['./home.component.scss'],
+  animations: [
+    trigger('itemLyfeCycle', [
+      transition(':enter',
+        animate('300ms',
+          style({
+              transform: 'scale(1)',
+              backgroundColor: '#eee'})
+        )
+      ),
+      transition(':leave',
+      animate('300ms',
+        style({
+            transform: 'scale(0)',
+            backgroundColor: '#eee'})
+      )
+    )
+    ])
+  ],
 })
 export class HomeComponent implements OnInit {
 
@@ -66,13 +85,25 @@ export class HomeComponent implements OnInit {
   }
 
   initUserList() {
-    this.userList = this.userService.findAllUser();
+    this.userService.findAllUser()
+    .then((result) => {
+      this.userList = result;
+      this.snackBarService.snackBarSuccess('List of user loaded').subscribe();
+    })
+    .catch((error) => {
+      this.snackBarService.snackBarError(error, 'Close').subscribe();
+    });
   }
 
   handleClickSave() {
-    this.userService.updateUsers(this.userList);
-    this.appAttributeService.setIsCanBeSaved(false);
-    this.snackBarService.snackBarSuccess('Main component saved').subscribe();
+    this.userService.updateUsers(this.userList)
+    .then(() => {
+      this.appAttributeService.setIsCanBeSaved(false);
+      this.snackBarService.snackBarSuccess('Main component saved').subscribe();
+    })
+    .catch((error) => {
+      this.snackBarService.snackBarError(error, 'Close').subscribe();
+    });
   }
 
   isCanBeSaved() {

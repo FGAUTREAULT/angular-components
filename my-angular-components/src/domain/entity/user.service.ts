@@ -16,29 +16,64 @@ export class UserService {
         lastName: string,
         age: number,
         description: string
-    ): User {
-        return this.mockUserService.addUser(firstName, lastName, age, description);
+    ): Promise<User> {
+        return new Promise((resolve, reject) => {
+            try {
+                this.mockUserService.addUser(firstName, lastName, age, description);
+                resolve();
+              } catch (e) {
+                reject(e);
+              }
+        });
     }
 
     // Read
     findUser (firstName: string,
         lastName: string,
         age: number
-    ): User {
-        return this.mockUserService.getUser(firstName, lastName, age);
+    ): Promise<User> {
+        return new Promise((resolve, reject) => {
+            try {
+                const result = this.mockUserService.getUser(firstName, lastName, age);
+                resolve(result);
+              } catch (e) {
+                reject(e);
+              }
+        });
     }
 
-    findAllUser (): User[] {
-        return this.mockUserService.getUserList();
+    findAllUser (): Promise<User[]> {
+        return new Promise((resolve, reject) => {
+            try {
+                const result = this.mockUserService.getUserList();
+                resolve(result);
+              } catch (e) {
+                reject(e);
+              }
+        });
     }
 
     // Update
     updateUser(user: User) {
-        this.mockUserService.updateUser(user);
+        return new Promise((resolve, reject) => {
+            try {
+                this.mockUserService.updateUser(user);
+                resolve();
+              } catch (e) {
+                reject(e);
+              }
+        });
     }
 
-    updateUsers(users: User[]) {
-        this.mockUserService.updateUsers(users);
+    updateUsers(users: User[]): Promise<any> {
+        return new Promise((resolve, reject) => {
+            try {
+                this.mockUserService.updateUsers(users);
+                resolve();
+              } catch (e) {
+                reject(e);
+              }
+        });
     }
 
     // Delete

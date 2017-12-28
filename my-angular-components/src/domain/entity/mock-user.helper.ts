@@ -21,12 +21,12 @@ export class MockUserService {
         age: number,
         description: string
     ): User {
-        let userToAdd: User = new User(firstName, lastName, age, description);
+        const userToAdd: User = new User(firstName, lastName, age, description);
 
         if (!this.getUser(userToAdd.firstName, userToAdd.lastName, userToAdd.age)) {
             this.userList.push(userToAdd);
         } else {
-            userToAdd = null;
+            throw new Error('User already exists.');
         }
 
         return userToAdd;
@@ -50,9 +50,13 @@ export class MockUserService {
 
     updateUser(userToUpdate: User) {
         const user = this.getUser(userToUpdate.firstName, userToUpdate.lastName, userToUpdate.age);
-        user.firstName = userToUpdate.firstName;
-        user.lastName = userToUpdate.lastName;
-        user.age = userToUpdate.age;
+        if (user) {
+            user.firstName = userToUpdate.firstName;
+            user.lastName = userToUpdate.lastName;
+            user.age = userToUpdate.age;
+        } else {
+            this.addUser(userToUpdate.firstName, userToUpdate.lastName, userToUpdate.age, userToUpdate.description);
+        }
     }
 
     updateUsers(users: User[]) {

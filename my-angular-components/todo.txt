@@ -8,6 +8,4 @@ Ajout de détail, toolbar slide
 tests
 remonter AppAttributesService dans le home et mettre des events
 muuri layout
-angular animations
-promesses pour service user
 formulaire de création utilisateur

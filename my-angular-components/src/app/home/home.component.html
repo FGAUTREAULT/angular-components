@@ -1,6 +1,6 @@
 <div class="my-home-wrapper">
   <div class="my-table-wrapper" >
-    <div *ngFor="let item of userList">
+    <div *ngFor="let item of userList" [@itemLyfeCycle] >
       <app-card [user]="item" ></app-card>
     </div>
   </div>

@@ -24,7 +24,8 @@ export class AppUtilsService {
   createUser(firstName: string,
     lastName: string,
     age: number,
-    description: string, userList: User[]
+    description: string,
+    userList: User[]
   ): User {
     let userToAdd: User = new User(firstName, lastName, age, description);
 
